@@ -21,10 +21,10 @@ export default function TabTwoScreen() {
       const res = await supabase.from("Session").select("*");
       const data = res.data[0];
       // console.log(data);
-      const graphData = data.distance.map((_, i) => {
+      const graphData = data.distance.map((item, i) => {
         return {
           time: i,
-          distance: data.distance[i],
+          distance: item,
         };
       });
       // console.log(graphData);
@@ -32,6 +32,29 @@ export default function TabTwoScreen() {
       // console.log(DATA);
       setData(graphData);
     }
+
+    const channelA = supabase
+      .channel("distance_updates")
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "Session",
+        },
+        (payload) => {
+          const graphData = payload.new?.distance.map((item, i) => {
+            return {
+              time: i,
+              distance: item,
+            };
+          });
+          console.log(graphData);
+          setData(graphData);
+        }
+      )
+      .subscribe();
+
     fetchData();
   }, []);
 
