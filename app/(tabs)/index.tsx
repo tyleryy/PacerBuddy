@@ -1,25 +1,41 @@
-import {
-  Image,
-  StyleSheet,
-  Platform,
-  ScrollView,
-  SafeAreaView,
-  View,
-} from "react-native";
+import { StyleSheet, ScrollView, SafeAreaView } from "react-native";
 
-import { HelloWave } from "@/components/HelloWave";
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
 import StartStopButton from "../../components/StartStopButton";
 import SpeedInput from "@/components/SpeedInput";
 import { useState, useEffect } from "react";
 
+import { Button } from "~/components/ui/button";
+import { Text } from "~/components/ui/text";
+import { View } from "react-native";
+
 export default function HomeScreen() {
   const [start, setStart] = useState(true);
-  const [value, setValue] = useState("");
+  const [pace, setPace] = useState("");
 
   useEffect(() => {}, [start]);
+
+  async function StartRover() {
+    await fetch(`${process.env.API_URL}/startrover`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pace: parseInt(pace) }),
+    });
+    console.log("Rover Started");
+  }
+
+  async function KillRover() {
+    console.log(process.env.API_BASE_URL);
+    await fetch(`${process.env.API_BASE_URL}/killrover`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ pace: parseInt(pace) }),
+    });
+    console.log("Rover Killed");
+  }
 
   return (
     <SafeAreaView className="h-full">
@@ -29,29 +45,34 @@ export default function HomeScreen() {
         }}
       >
         <View className="h-screen w-screen flex flex-col px-5 items-center justify-center gap-5">
-          <SpeedInput value={value} setValue={setValue} />
-          <StartStopButton startState={start} setter={setStart} />
+          <SpeedInput value={pace} setValue={setPace} />
+          <View className="min-w-1/2">
+            {!start ? (
+              <Button
+                variant="outline"
+                className="bg-red-500"
+                onPress={() => {
+                  setStart(true);
+                  KillRover();
+                }}
+              >
+                <Text>Stop</Text>
+              </Button>
+            ) : (
+              <Button
+                variant="outline"
+                className="bg-green-500"
+                onPress={() => {
+                  setStart(false);
+                  StartRover();
+                }}
+              >
+                <Text>Start</Text>
+              </Button>
+            )}
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});
