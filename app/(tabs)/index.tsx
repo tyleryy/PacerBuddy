@@ -26,8 +26,8 @@ export default function HomeScreen() {
   }
 
   async function KillRover() {
-    console.log(process.env.API_BASE_URL);
-    await fetch(`${process.env.API_BASE_URL}/killrover`, {
+    console.log(process.env.EXPO_PUBLIC_API_BASE_URL);
+    await fetch(`${process.env.EXPO_PUBLIC_API_BASE_URL}/killrover`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
