@@ -1,9 +1,10 @@
 import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
+import { View } from "react-native";
 
 function StartStopButton({ startState, setter }) {
   return (
-    <>
+    <View className="min-w-1/2">
       {!startState ? (
         <Button
           variant="outline"
@@ -21,7 +22,7 @@ function StartStopButton({ startState, setter }) {
           <Text>Start</Text>
         </Button>
       )}
-    </>
+    </View>
   );
 }
 

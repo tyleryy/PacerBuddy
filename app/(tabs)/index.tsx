@@ -11,10 +11,16 @@ import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import StartStopButton from "./components/StartStopButton";
-import { useState } from "react";
+import StartStopButton from "../../components/StartStopButton";
+import SpeedInput from "@/components/SpeedInput";
+import { useState, useEffect } from "react";
+
 export default function HomeScreen() {
   const [start, setStart] = useState(true);
+  const [value, setValue] = useState("");
+
+  useEffect(() => {}, [start]);
+
   return (
     <SafeAreaView className="h-full">
       <ScrollView
@@ -22,7 +28,8 @@ export default function HomeScreen() {
           height: "100%",
         }}
       >
-        <View className="h-screen w-screen flex flex-col items-center justify-center">
+        <View className="h-screen w-screen flex flex-col px-5 items-center justify-center gap-5">
+          <SpeedInput value={value} setValue={setValue} />
           <StartStopButton startState={start} setter={setStart} />
         </View>
       </ScrollView>
