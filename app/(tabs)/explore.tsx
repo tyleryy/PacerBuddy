@@ -49,7 +49,7 @@ export default function TabTwoScreen() {
               distance: item,
             };
           });
-          console.log(graphData);
+          // console.log(graphData);
           setData(graphData);
         }
       )

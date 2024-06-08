@@ -7,10 +7,25 @@ import { useState, useEffect } from "react";
 import { Button } from "~/components/ui/button";
 import { Text } from "~/components/ui/text";
 import { View } from "react-native";
+import Toast from "react-native-toast-message";
 
 export default function HomeScreen() {
   const [start, setStart] = useState(true);
   const [pace, setPace] = useState("");
+
+  const showToastError = () => {
+    Toast.show({
+      type: "error",
+      text1: "Rover Stopped 🛑",
+    });
+  };
+
+  const showToastSuccess = () => {
+    Toast.show({
+      type: "success",
+      text1: "Rover Started 🚀",
+    });
+  };
 
   useEffect(() => {}, [start]);
 
@@ -22,7 +37,7 @@ export default function HomeScreen() {
       },
       body: JSON.stringify({ pace: parseInt(pace) }),
     });
-    console.log("Rover Started");
+    showToastSuccess();
   }
 
   async function KillRover() {
@@ -34,7 +49,7 @@ export default function HomeScreen() {
       },
       body: JSON.stringify({ pace: parseInt(pace) }),
     });
-    console.log("Rover Killed");
+    showToastError();
   }
 
   return (
@@ -45,12 +60,14 @@ export default function HomeScreen() {
         }}
       >
         <View className="h-screen w-screen flex flex-col px-5 items-center justify-center gap-5">
-          <SpeedInput value={pace} setValue={setPace} />
+          <View className="min-w-3/4">
+            <SpeedInput value={pace} setValue={setPace} />
+          </View>
           <View className="min-w-1/2">
             {!start ? (
               <Button
                 variant="outline"
-                className="bg-red-500"
+                className="bg-red-500 hover:bg-red-600"
                 onPress={() => {
                   setStart(true);
                   KillRover();

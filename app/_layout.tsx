@@ -9,6 +9,7 @@ import { Platform } from "react-native";
 import { NAV_THEME } from "~/lib/constants";
 import { useColorScheme } from "~/lib/useColorScheme";
 import { ThemeToggle } from "~/components/ThemeToggle";
+import Toast from "react-native-toast-message";
 
 // Import your global CSS file
 import "../global.css";
@@ -73,6 +74,7 @@ export default function RootLayout() {
         />
         <Stack.Screen name="+not-found" />
       </Stack>
+      <Toast />
     </ThemeProvider>
   );
 }
