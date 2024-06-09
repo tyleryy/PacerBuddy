@@ -50,7 +50,8 @@
     "tailwindcss-animate": "^1.0.7",
     "victory-native": "^41.0.0",
     "expo-camera": "~15.0.10",
-    "react-native-maps": "1.14.0"
+    "react-native-maps": "1.14.0",
+    "expo-sensors": "~13.0.8"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
