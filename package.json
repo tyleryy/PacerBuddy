@@ -48,7 +48,8 @@
     "react-native-web": "~0.19.10",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "victory-native": "^41.0.0"
+    "victory-native": "^41.0.0",
+    "expo-camera": "~15.0.10"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
