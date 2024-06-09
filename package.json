@@ -51,7 +51,8 @@
     "victory-native": "^41.0.0",
     "expo-camera": "~15.0.10",
     "react-native-maps": "1.14.0",
-    "expo-sensors": "~13.0.8"
+    "expo-sensors": "~13.0.8",
+    "expo-location": "~17.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
