@@ -28,7 +28,7 @@ export default function App() {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      console.log(location);
+      // console.log(location);
       setLocation(location);
     })();
   }, []);
@@ -48,12 +48,20 @@ export default function App() {
           style={styles.map}
           showsUserLocation={true}
           followsUserLocation={true}
+          // cameraZoomRange={{
+          //   minCenterCoordinateDistance: 0,
+          //   maxCenterCoordinateDistance: 5,
+          // }}
           minZoomLevel={15}
+          showsCompass={true}
+          showsTraffic={true}
+          mapType="terrain"
+          loadingEnabled={true}
           // initialRegion={{
           //   latitude: location.coords.latitutde,
           //   longitude: location.coords.longitude,
-          //   latitudeDelta: 5,
-          //   longitudeDelta: 5,
+          //   latitudeDelta: 0.0001,
+          //   longitudeDelta: 0.0001,
           // }}
         />
       )}
