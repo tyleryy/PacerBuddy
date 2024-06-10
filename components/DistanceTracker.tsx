@@ -58,6 +58,7 @@ const DistanceTracker = () => {
   }, []);
   return (
     <View className="w-3/4 h-56 border">
+      <Text className=" text-lg">Distance Traveled over Time</Text>
       <CartesianChart
         data={data}
         xKey="time"
@@ -69,9 +70,9 @@ const DistanceTracker = () => {
           // 👇 and we'll use the Line component to render a line path.
           <>
             <Line points={points.distance} color="red" strokeWidth={3} />
-            {isActive ? (
+            {/* {isActive ? (
               <ToolTip x={state.x.position} y={state.y.distance.position} />
-            ) : null}
+            ) : null} */}
           </>
         )}
       </CartesianChart>

@@ -9,6 +9,7 @@ function SpeedInput({ value, setValue }) {
 
   return (
     <Input
+      className="min-w-1/2 w-1/2"
       placeholder="Enter Speed..."
       value={value}
       onChangeText={onChangeText}

@@ -42,11 +42,12 @@ export default function StepTracker() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View className="">
       <Text>Pedometer.isAvailableAsync(): {isPedometerAvailable}</Text>
       <Text>Steps taken in the last 24 hours: {pastStepCount}</Text>
       <Text>Walk! And watch this go up: {currentStepCount}</Text>
       <View className="w-3/4 h-56 border">
+        <Text className=" text-lg">Steps Taken over Time</Text>
         <CartesianChart
           data={DATA}
           xKey="x"
@@ -67,12 +68,3 @@ export default function StepTracker() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 15,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});

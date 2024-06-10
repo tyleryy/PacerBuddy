@@ -60,9 +60,7 @@ export default function HomeScreen() {
         }}
       >
         <View className="h-screen w-screen flex flex-col px-5 items-center justify-center gap-5">
-          <View className="min-w-3/4">
-            <SpeedInput value={pace} setValue={setPace} />
-          </View>
+          <SpeedInput value={pace} setValue={setPace} />
           <View className="min-w-1/2">
             {!start ? (
               <Button
