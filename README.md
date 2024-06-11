@@ -1,50 +1,25 @@
-# Welcome to your Expo app 👋
+# Pacer Buddy App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+- React Native / Expo app for starting and stopping running sessions with the Pacer Buddy rover
+- realtime analytics of the run session from Supabase
+- Geolocation with Google Maps
+- And Photo sharing capabilities to post your marathon moments to social media!
 
-## Get started
 
-1. Install dependencies
+## Architecture:
 
-   ```bash
-   npm install
-   ```
+[LucidChart Diagram](https://lucid.app/lucidchart/76e528ee-952c-4684-9fdf-a60ea74e1a56/edit?view_items=frpKZd4.zPeV&invitationId=inv_2bf49015-730d-4159-b9a2-5710e72b95d7)
 
-2. Start the app
+## Pacer Buddy Server
 
-   ```bash
-    npx expo start
-   ```
+[Repo](https://github.com/adcockdalton/PacerBuddy-server)
 
-In the output, you'll find options to open the app in a
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Rover Hardware
+![IMG_8830](https://github.com/tyleryy/PacerBuddyApp/assets/66880934/0900bfd6-6537-4969-bffd-df1023df8647)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
 
-When you're ready, run:
+## Demo Vid
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+[Demo Vid](https://youtu.be/0elPFSeF_fs)
