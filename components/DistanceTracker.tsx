@@ -1,7 +1,14 @@
 import { StyleSheet, ScrollView, SafeAreaView, View } from "react-native";
-import { CartesianChart, Line, useChartPressState, Area } from "victory-native";
+import {
+  CartesianChart,
+  Line,
+  useChartPressState,
+  useLinePath,
+  useAnimatedPath,
+  type PointsArray,
+} from "victory-native";
 import { useEffect, useState } from "react";
-import { useFont } from "@shopify/react-native-skia";
+import { useFont, Path } from "@shopify/react-native-skia";
 import SpaceMono from "@/assets/fonts/SpaceMono-Regular.ttf";
 import { Text } from "@/components/ui/text";
 import { supabase } from "@/lib/utils/supabase";
@@ -10,7 +17,7 @@ import type { SharedValue } from "react-native-reanimated";
 const DistanceTracker = () => {
   const [data, setData] = useState([{}]);
 
-  const { state, isActive } = useChartPressState({ x: 0, y: { distance: 0 } });
+  // const { state, isActive } = useChartPressState({ x: 0, y: { pace: 0 } });
   const font = useFont(SpaceMono, 16);
 
   useEffect(() => {
@@ -19,10 +26,10 @@ const DistanceTracker = () => {
       const res = await supabase.from("Session").select("*");
       const data = res.data[0];
       // console.log(data);
-      const graphData = data.distance.map((item, i) => {
+      const graphData = data.pace.map((item, i) => {
         return {
-          time: i,
-          distance: item,
+          time: data.time[i],
+          pace: item,
         };
       });
       // console.log(graphData);
@@ -42,10 +49,10 @@ const DistanceTracker = () => {
           table: "Session",
         },
         (payload) => {
-          const graphData = payload.new?.distance.map((item, i) => {
+          const graphData = payload.new.pace.map((item, i) => {
             return {
-              time: i,
-              distance: item,
+              time: payload.new.time[i],
+              pace: item,
             };
           });
           // console.log(graphData);
@@ -57,19 +64,18 @@ const DistanceTracker = () => {
     fetchData();
   }, []);
   return (
-    <View className="w-3/4 h-56 border">
+    <View className="w-3/4 h-56 border border-black dark:text-white dark:border-white">
       <Text className=" text-lg">Distance Traveled over Time</Text>
       <CartesianChart
         data={data}
         xKey="time"
-        yKeys={["distance"]}
+        yKeys={["pace"]}
         axisOptions={{ font }}
-        chartPressState={state}
       >
         {({ points }) => (
           // 👇 and we'll use the Line component to render a line path.
           <>
-            <Line points={points.distance} color="red" strokeWidth={3} />
+            <Line points={points.pace} color="red" strokeWidth={3} />
             {/* {isActive ? (
               <ToolTip x={state.x.position} y={state.y.distance.position} />
             ) : null} */}
@@ -79,5 +85,13 @@ const DistanceTracker = () => {
     </View>
   );
 };
+
+function MyAnimatedLine({ points }: { points: PointsArray }) {
+  const { path } = useLinePath(points);
+  // 👇 create an animated path
+  const animPath = useAnimatedPath(path);
+
+  return <Path path={animPath} style="stroke" color="red" strokeWidth={3} />;
+}
 
 export default DistanceTracker;
