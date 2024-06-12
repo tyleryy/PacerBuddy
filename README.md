@@ -9,6 +9,7 @@
 ## Architecture:
 
 [LucidChart Diagram](https://lucid.app/lucidchart/76e528ee-952c-4684-9fdf-a60ea74e1a56/edit?view_items=frpKZd4.zPeV&invitationId=inv_2bf49015-730d-4159-b9a2-5710e72b95d7)
+
 ![Screenshot 2024-06-11 at 5 00 42 PM](https://github.com/tyleryy/PacerBuddyApp/assets/66880934/90644881-93e0-4792-97f1-2ae055c53498)
 
 ## Pacer Buddy Server
