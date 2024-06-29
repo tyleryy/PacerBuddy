@@ -5,6 +5,10 @@
 - Geolocation with Google Maps
 - And Photo sharing capabilities to post your marathon moments to social media!
 
+[Demo Vid](https://youtu.be/0elPFSeF_fs)
+
+[Pacer Buddy Server Repo](https://github.com/adcockdalton/PacerBuddy-server)
+
 
 ## Architecture:
 
@@ -12,9 +16,7 @@
 
 ![Screenshot 2024-06-11 at 5 00 42 PM](https://github.com/tyleryy/PacerBuddyApp/assets/66880934/90644881-93e0-4792-97f1-2ae055c53498)
 
-## Pacer Buddy Server
 
-[Repo](https://github.com/adcockdalton/PacerBuddy-server)
 
 
 ## Rover Hardware
@@ -22,6 +24,3 @@
 
 
 
-## Demo Vid
-
-[Demo Vid](https://youtu.be/0elPFSeF_fs)
