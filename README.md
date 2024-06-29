@@ -5,9 +5,9 @@
 - Geolocation with Google Maps
 - And Photo sharing capabilities to post your marathon moments to social media!
 
-[Demo Vid](https://youtu.be/0elPFSeF_fs)
+[Demo Vid](https://youtu.be/0elPFSeF_fs) 🔗
 
-[Pacer Buddy Server Repo](https://github.com/adcockdalton/PacerBuddy-server)
+[Pacer Buddy Server Repo](https://github.com/adcockdalton/PacerBuddy-server) 🔗
 
 
 ## Architecture:
